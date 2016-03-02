@@ -8,7 +8,9 @@ post '/slash' do
   case params[:command]
   when '/freshpots'
     freshpots(params)
-  when '/happyhour' || '/beer'
+  when '/beer'
+    happy(params)
+  when '/happyhour'
     happy(params)
   end
   status 200
@@ -31,7 +33,6 @@ def freshpots(params)
 end
 
 def happy(params)
-  token = params[:token]
   channel_id = params[:channel_id]
   text = "It’s happy hour! Come to the kitchen for drinks and to mingle and catch up with your coworkers."
   payload = { :channel => channel_id,
