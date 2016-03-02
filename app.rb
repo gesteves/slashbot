@@ -33,7 +33,7 @@ end
 def happy(params)
   token = params[:token]
   channel_id = params[:channel_id]
-  text = "It’s Thursday happy hour! Come to the kitchen for drinks and to mingle and catch up with your coworkers."
+  text = "It’s happy hour! Come to the kitchen for drinks and to mingle and catch up with your coworkers."
   payload = { :channel => channel_id,
               :text => text,
               :username => 'happybot',
