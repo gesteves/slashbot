@@ -8,7 +8,7 @@ post '/slash' do
   case params[:command]
   when '/freshpots'
     freshpots(params)
-  when '/happyhour'
+  when '/happyhour' || '/beer'
     happy(params)
   end
   status 200
@@ -39,9 +39,7 @@ def happy(params)
               :username => 'happybot',
               :icon_emoji => ':party:',
               :link_names => 1 }
-  if token == ENV['BEERBOT_TOKEN']
-    post_response(payload)
-  end
+  post_response(payload)
 end
 
 def post_response(payload)
