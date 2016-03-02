@@ -8,8 +8,8 @@ post '/slash' do
   case params[:command]
   when '/freshpots'
     freshpots(params)
-  when '/beer'
-    beer(params)
+  when '/happyhour'
+    happy(params)
   end
   status 200
   body ''
@@ -30,14 +30,14 @@ def freshpots(params)
   end
 end
 
-def beer(params)
+def happy(params)
   token = params[:token]
   channel_id = params[:channel_id]
-  text = "Beer's here!"
+  text = "It’s Thursday happy hour! Come to the kitchen for drinks and to mingle and catch up with your coworkers."
   payload = { :channel => channel_id,
               :text => text,
-              :username => 'beerbot',
-              :icon_emoji => ':beers:',
+              :username => 'happybot',
+              :icon_emoji => ':party:',
               :link_names => 1 }
   if token == ENV['BEERBOT_TOKEN']
     post_response(payload)
